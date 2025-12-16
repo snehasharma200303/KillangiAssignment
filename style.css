@@ -991,3 +991,203 @@ body {
 html, body {
   overflow-x: hidden;
 }
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  /* GLOBAL */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* TOP STRIP */
+  .top-strip {
+    padding: 8px 16px;
+  }
+  .social-icons {
+    display: none;
+  }
+
+  /* HEADER */
+  .header {
+    grid-template-columns: auto 1fr auto;
+    padding: 14px 16px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .logo {
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .icons {
+    gap: 14px;
+    font-size: 18px;
+  }
+
+  /* NAV */
+  .nav {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .hero-left {
+    padding: 50px 20px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 28px;
+  }
+
+  .hero-left p {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    height: 260px;
+  }
+
+  /* USP */
+  .usp {
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  /* BESTSELLER */
+  .bestseller {
+    padding: 50px 20px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* RECENT */
+  .recent {
+    padding: 40px 20px;
+  }
+
+  .recent-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* GIFT NOTES */
+  .gift-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-large {
+    height: 320px;
+  }
+
+  /* SEASONAL */
+  .seasonal {
+    grid-template-columns: 1fr;
+  }
+
+  .season {
+    height: 360px;
+  }
+
+  .season-content {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .season-content h3 {
+    font-size: 24px;
+  }
+
+  /* COLLECTION */
+  .collection {
+    padding: 50px 20px;
+  }
+
+  .collection-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* GIFTS */
+  .gifts {
+    padding: 50px 20px;
+  }
+
+  .gift-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* ETHOS */
+  .ethos {
+    grid-template-columns: 1fr;
+  }
+
+  .ethos-img img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .ethos-text {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  /* FUTURE */
+  .future {
+    flex-direction: column;
+  }
+
+  .future-left img {
+    width: 100%;
+  }
+
+  .future-right {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 50px 20px;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* FOOTER HIGHLIGHTS */
+  .footer-highlights {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  /* FOOTER */
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
+}
