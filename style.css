@@ -628,13 +628,13 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .gift-item img {
-  width: 90%;
-  height: 450px;
-  object-fit: cover;
-  display: block;
+  width: 100%;          /* 🔥 deploy-safe */
+  max-width: 90%;       /* same visual look */
+  margin: 0 auto;
 }
 
 .gift-item h4 {
@@ -660,9 +660,11 @@ body {
   font-size: 13px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   transition: all 0.3s;
   color: white;
+   margin: 0 auto;       /* deploy-safe centering */
+  justify-content: center;
 }
 
 .gift-item button:hover {
