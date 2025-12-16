@@ -79,12 +79,13 @@ body {
 .search {
   position: relative;
   display: flex;
+ 
   align-items: center;
 }
 
 .search i {
   position: absolute;
-  left: 12px;
+  left: 230px;
   color: var(--color-text-light);
   font-size: 18px;
 }
@@ -93,7 +94,7 @@ body {
   padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-xs) 40px;
   width: 260px;
   border: 1px solid var(--color-border);
-  border-radius: 4px;
+  border-radius: 40px;
   font-size: 14px;
 }
 
@@ -134,7 +135,7 @@ body {
   gap: 28px;
   padding: 14px 0;
   border-top: 1px solid var(--color-border);
-  background: var(--color-white);
+  background: #efdad1;
 }
 
 .nav a {
@@ -211,6 +212,7 @@ body {
   padding: 22px;
   background: var(--color-white);
   font-size: 14px;
+  font-weight: bold;
 }
 
 .usp-item {
@@ -222,11 +224,27 @@ body {
 .usp-item i {
   font-size: 18px;
   color: var(--color-accent);
+    
+}
+
+.usp-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usp-item span {
+  order: 1;
+}
+
+.usp-item i {
+  order: 2;
 }
 
 .bestseller {
+    background-color: var(--color-white);;
   padding: 80px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .bestseller h2 {
@@ -248,7 +266,7 @@ body {
   margin: 0 6px;
   padding: 8px 16px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #a7a5a5;
   background: transparent;
 }
 
@@ -265,7 +283,6 @@ body {
 }
 
 .product {
-  text-align: center;
 }
 
 .product img {
@@ -277,8 +294,8 @@ body {
 
 .product h4 {
   margin-top: var(--spacing-sm);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 400;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
@@ -297,10 +314,11 @@ body {
 
 .color-swatches {
   display: flex;
-  justify-content: center;
+  flex-wrap: nowrap;     /* ❗ very important */
+  align-items: center;   /* vertically align */
   gap: 8px;
-  margin-top: var(--spacing-xs);
 }
+
 
 .swatch {
   width: 20px;
@@ -309,6 +327,18 @@ body {
   border: 2px solid var(--color-white);
   box-shadow: 0 0 0 1px var(--color-border);
   cursor: pointer;
+}
+.product:nth-child(1) .swatch:first-child {
+  width: 26px;
+  height: 26px;
+}
+.product:nth-child(2) .color-swatches {
+  display: none;
+}
+
+.product:nth-child(3) .swatch:last-child {
+  width: 18px;
+  height: 18px;
 }
 
 .dark-btn {
@@ -323,6 +353,10 @@ body {
   align-items: center;
   gap: 8px;
   transition: background 0.3s;
+}
+.bestseller .dark-btn {
+  display: flex;
+  margin: 40px auto 0;   /* auto = horizontally center */
 }
 
 .dark-btn:hover {
@@ -404,13 +438,13 @@ body {
 }
 
 .gift-large {
-  height: 680px;
-  border-radius: 8px;
+  height: 880px;
+  /* border-radius: 8px; */
   overflow: hidden;
 }
 
 .gift-large img {
-  width: 100%;
+  width: 90%;
   height: 100%;
   object-fit: cover;
 }
@@ -422,26 +456,27 @@ body {
 }
 
 .gift-card {
-  height: 220px;
+  aspect-ratio: 1 / 1; /* perfect square */
   position: relative;
-  border-radius: 8px;
-  overflow: hidden;
+  overflow: visible; /* allow button to overflow outside */
+  transform: translateX(-10%); /* shift left a bit */
 }
 
 .gift-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .gift-card button {
-  position: absolute;
-  bottom: var(--spacing-md);
+  position: absolute; /* absolute relative to card */
+  bottom: -50px;      /* peeks outside the image */
   left: 50%;
   transform: translateX(-50%);
   background: var(--color-white);
-  border: 1px solid #ccc;
-  padding: var(--spacing-xs) 14px;
+  border: 2px solid #050505;
+  padding: var(--spacing-xs, 5px) 14px;
   cursor: pointer;
   font-size: 13px;
   white-space: nowrap;
@@ -451,6 +486,7 @@ body {
 .gift-card button:hover {
   background: var(--color-bg-light);
 }
+
 
 /* Seasonal */
 .seasonal {
@@ -524,16 +560,15 @@ body {
 
 .collection-row {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 2fr);
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
 }
-
 .collection-item {
   position: relative;
   cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
+  /* border-radius: 8px; */
+  overflow: visible; /* allow span to go outside */
 }
 
 .collection-item img {
@@ -549,25 +584,32 @@ body {
 
 .collection-item span {
   position: absolute;
-  bottom: var(--spacing-sm);
+  bottom: -35px; /* moves span outside the image */
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);padding: 6px 16px;
+
+  font-size: 16px;
+  font-weight: 550;
+  white-space: nowrap;
+  text-decoration: underline;
+  transition: background 0.3s;
 }
 
+.collection-item span:hover {
+  background: rgba(255, 255, 255, 1);
+}
 .gifts {
   background: var(--color-bg-beige);
-  padding: var(--spacing-xxl);
-  text-align: center;
+  padding: 60px 20px;
+  /* text-align: center; */
 }
 
 .gifts h2 {
   font-family: var(--font-heading);
   font-size: 34px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .gifts h2 em {
@@ -575,65 +617,78 @@ body {
 }
 
 .gifts > p {
-  margin-top: var(--spacing-sm);
+  margin-bottom: 40px;
   color: var(--color-text-light);
+  font-size: 16px;
+  text-align: center;
 }
 
-.gift-cards {
+.gift-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin: var(--spacing-lg) 0;
+  margin-bottom: 40px;
 }
 
-.gift-box {
-  background: var(--color-white);
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: left;
-}
-
-.gift-box img {
-  width: 100%;
-  height: 200px;
+.gift-item img {
+  width: 90%;
+  height: 450px;
   object-fit: cover;
+  display: block;
 }
 
-.gift-box-content {
-  padding: var(--spacing-md);
-}
-
-.gift-box h4 {
+.gift-item h4 {
+  margin: 12px 0 8px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: var(--spacing-xs);
+  
 }
 
-.gift-box p {
+.gift-item p {
   font-size: 14px;
-  color: var(--color-text-light);
-  margin-bottom: var(--spacing-md);
+  color: var(--color-text-white);
+  margin-bottom: 15px;
   line-height: 1.5;
 }
 
-.gift-box button {
-  background: transparent;
+.gift-item button {
+  background: var(--color-secondary);
   border: 1px solid var(--color-text-dark);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: 8px 16px;
   cursor: pointer;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: all 0.3s;
+  color: white;
 }
 
-.gift-box button:hover {
-  background: var(--color-primary);
+.gift-item button:hover {
+  background: var(--color-yellow);
   color: var(--color-white);
   border-color: var(--color-primary);
 }
+
+.dark-btn {
+  background: var(--color-secondary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  margin: 0 auto;
+}
+.dark-btn:hover {
+  background: var(--color-primary);
+}
+
 
 /* Ethos */
 .ethos {
@@ -707,14 +762,11 @@ body {
 
 .future-left {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* padding: var(--spacing-xxl); */
   background: var(--color-bg-beige);
 }
 
 .future-left img {
-  width: 600px;
+  width: 700px;
   object-fit: contain;
 }
 
@@ -728,7 +780,7 @@ body {
 
 .future-right h2 {
   font-family: var(--font-heading);
-  font-size: 34px;
+  font-size: 44px;
   margin-bottom: var(--spacing-md);
 }
 
@@ -739,7 +791,7 @@ body {
 .future-right > p {
   margin-bottom: var(--spacing-lg);
   line-height: 1.6;
-  color: var(--color-text-light);
+  color: var(--color-text-black);
 }
 
 .badges {
@@ -761,7 +813,7 @@ body {
 }
 
 .badge-item i {
-  font-size: 32px;
+  font-size: 55px;
   color: var(--color-primary);
 }
 
@@ -798,11 +850,11 @@ body {
 }
 
 .review-card {
-  background: var(--color-bg-light);
-  border-radius: 8px;
-  overflow: hidden;
+  background: none;          
+  border-radius: 0;          
+  overflow: visible;        
   text-align: left;
-  transition: transform 0.3s;
+  transition: none; 
 }
 
 .review-card:hover {
@@ -811,15 +863,17 @@ body {
 
 .review-card img {
   width: 100%;
-  height: 200px;
+  height: 400px;
   object-fit: cover;
+  margin-bottom: var(--spacing-sm); 
 }
 
+.review-card > div,
 .review-card > div,
 .review-card > h4,
 .review-card > p,
 .review-card > span {
-  padding: 0 var(--spacing-md);
+  padding: 0;               
 }
 
 .review-card > div:first-of-type {
@@ -828,34 +882,33 @@ body {
 
 .review-card > span:last-child {
   display: block;
+  font-weight: bold;
+  text-align: right;
   padding-bottom: var(--spacing-md);
 }
 
 .stars {
-  color: var(--color-accent);
+  color: var(--color-black);
   margin-bottom: var(--spacing-xs);
 }
 
 .review-card h4 {
-  font-size: 16px;
-  margin: var(--spacing-xs) 0;
+  margin: 8px 0;
 }
 
 .review-card p {
-  font-size: 13px;
-  color: var(--color-text-light);
-  line-height: 1.5;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 10px;
 }
 
 .review-card span {
   font-size: 12px;
   font-style: italic;
-  color: var(--color-text-light);
+  color: var(--color-text-black);
+weight: bold;
 }
 
 .footer-highlights {
-  background: #fffaf6; /* same light background as design */
+  background: #fffaf6; 
   padding: 60px 0;
   display: flex;
   justify-content: center;
@@ -870,7 +923,7 @@ body {
 .circle {
   width: 70px;
   height: 70px;
-  border: 1.5px solid #1f4d45;
+  border: 2.5px solid #033730;
   border-radius: 50%;
   margin: 0 auto 14px;
 }
@@ -886,7 +939,8 @@ body {
   background: var(--color-primary);
   color: var(--color-white);
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: 20px;
+
 
 }
 
@@ -939,14 +993,19 @@ body {
 }
 
 .footer-bottom {
-   background: #1b5a52; /* thoda lighter strip, screenshot jaisa */
-  text-align: center;
-  padding: 14px 0;
-  font-size: 13px;
+  background: #24645c;
   color: #ffffff;
+  font-size: 13px;
   letter-spacing: 0.5px;
-  margin-bottom: 0;
+
+  padding: 11px 30px;
+  max-width: 80%;     
+  margin: 0 auto;      
+
+  text-align: center;
+  border-radius: 10px;
 }
+
 
 @media (max-width: 768px) {
 
